@@ -9,7 +9,7 @@ class Cli
   
   def first_wild_pokemon(trainer)
     puts "#{trainer.name}, it is time for you to catch your first wild Pokemon and add it to your team!"
-    puts "Pokemon can be found while searching in tall grass, type 'search' to find a pokemon."
+    puts "Pokemon can be found while searching in tall grass, type 'search' to find a Pokemon."
     input = gets.strip
     
     while input != "search"
@@ -17,11 +17,16 @@ class Cli
       input = gets.strip
     end
     
-    if input == "search"
       wild_pokemon = PokeApi.get(pokemon: 'bulbasaur')
-      puts "You encountered a wild #{pokemon.name}!!"
-    else
+      puts "You encountered a wild #{wild_pokemon.name}!!"
+      puts "Type 'pokeball' to attempt to capture the #{wild_pokemon.name}."
+      
+    while input != "pokeball"
+      puts "Throw a pokeball by typing 'pokeball'!"
+      input = gets.strip
     end
+    
+    trainer.catch_pokemon(wild_pokemon)
     
   end
   
