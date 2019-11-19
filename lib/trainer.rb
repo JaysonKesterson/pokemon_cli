@@ -1,7 +1,3 @@
-# require 'poke-api-v2'
-# bulbasaur = PokeApi.get(pokemon: 'bulbasaur')
-# ivysaur = PokeApi.get(pokemon: 'ivysaur')
-# puts ivysaur.order
 
 class Trainer
   
