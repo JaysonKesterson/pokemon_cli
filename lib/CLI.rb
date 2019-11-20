@@ -26,7 +26,7 @@ class Cli
       input = gets.strip
     end
     
-      wild_pokemon = PokeApi.get(pokemon: 'bulbasaur')
+      wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
       puts "You encountered a wild #{wild_pokemon.name}!!"
       puts "Type 'pokeball' to attempt to capture the #{wild_pokemon.name}."
       
@@ -36,6 +36,28 @@ class Cli
     end
     trainer_obj.catch_pokemon(wild_pokemon)
   end
+  
+  def encounter_pokemon
+    puts "If you would like to catch another pokemon, type 'encounter' to find another one!"
+    input = gets.strip
+    
+    
+    while input != "encounter"
+      puts "You must search for wild pokemon to become a great trainer. Type 'encounter' to find a Pokemon to capture!"
+      input = gets.strip
+    end
+    
+    wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
+      puts "You encountered a wild #{wild_pokemon.name}!!"
+      puts "Type 'pokeball' to attempt to capture the #{wild_pokemon.name}."
+      
+    while input != "pokeball"
+      puts "Throw a pokeball by typing 'pokeball'!"
+      input = gets.strip
+    end
+    trainer_obj.catch_pokemon(wild_pokemon)
+  end
+      
 end
 
 
