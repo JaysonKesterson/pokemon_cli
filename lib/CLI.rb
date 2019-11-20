@@ -64,8 +64,8 @@ class Cli
       puts "if you would like to see a list of the pokemon you own, type 'list'."
       input = gets.strip
       
-      while input != "encounter" || input != "list" #broken condition
-        puts "Type encounter to find another pokemon, or list to see a list of pokemon owned."
+      while input != "encounter" #need to check for list too?
+        puts "Type 'encounter' to find another pokemon, or 'list' to see a list of pokemon owned."
         input = gets.strip
       end
     
