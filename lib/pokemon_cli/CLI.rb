@@ -15,6 +15,7 @@ class CLI
     @trainer = Trainer.new(trainer_name)
   end
   
+  
   def self.first_wild_pokemon(trainer_obj)
     puts "#{trainer_obj.name}, it is time for you to catch your first wild Pokemon and add it to your team!"
     puts "Pokemon can be found while searching in tall grass, type 'search' to find a Pokemon."
@@ -68,7 +69,7 @@ class CLI
         input = gets.strip
       end
     
-    if input == "encounter" 
+    if input == "encounter" || "list"
     CLI.encounter_pokemon(@trainer)
     elsif input == "list"
     @trainer.list_pokemon_by_name(@trainer)
