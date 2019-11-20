@@ -1,14 +1,12 @@
-require 'poke-api-v2'
-require 'pry'
-require_relative 'trainer'
-class Cli
+
+class CLI
   
   @trainer = nil
   
   def self.interaction
-    Cli.welcome_trainer
-    Cli.first_wild_pokemon(@trainer)
-    Cli.decision
+    CLI.welcome_trainer
+    CLI.first_wild_pokemon(@trainer)
+    CLI.decision
   end
   
   def self.welcome_trainer
@@ -49,6 +47,7 @@ class Cli
     end
     
     wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
+    binding.pry
       puts "You encountered a wild #{wild_pokemon.name}!!"
       puts "Type 'pokeball' to attempt to capture the #{wild_pokemon.name}."
       
@@ -69,16 +68,13 @@ class Cli
         input = gets.strip
       end
     
-    if input == "encounter"
-    Cli.encounter_pokemon(@trainer)
+    if input == "encounter" 
+    CLI.encounter_pokemon(@trainer)
     elsif input == "list"
     @trainer.list_pokemon_by_name(@trainer)
     end
     end
 end
 
-
-
-Cli.interaction
 
 
