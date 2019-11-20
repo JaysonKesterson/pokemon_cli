@@ -8,8 +8,7 @@ class Cli
   def self.interaction
     Cli.welcome_trainer
     Cli.first_wild_pokemon(@trainer)
-    Cli.encounter_pokemon(@trainer)
-    @trainer.list_pokemon_by_name(@trainer)
+    Cli.decision
   end
   
   def self.welcome_trainer
@@ -40,12 +39,12 @@ class Cli
   end
   
   def self.encounter_pokemon(trainer_obj)
-    puts "If you would like to catch another pokemon, type 'encounter' to find another one!"
+    puts "If you are ready to catch another pokemon, type 'go' to find another one!"
     input = gets.strip
     
     
-    while input != "encounter"
-      puts "You must search for wild pokemon to become a great trainer. Type 'encounter' to find a Pokemon to capture!"
+    while input != "go"
+      puts "Whenever you are ready, type 'go' to find a Pokemon to capture!"
       input = gets.strip
     end
     
@@ -60,6 +59,22 @@ class Cli
     trainer_obj.catch_pokemon(wild_pokemon)
   end
       
+    def self.decision
+      puts "if you would like to capture another pokemon, type 'encounter'"
+      puts "if you would like to see a list of the pokemon you own, type 'list'."
+      input = gets.strip
+      
+      while input != "encounter" || input != "list" #broken condition
+        puts "Type encounter to find another pokemon, or list to see a list of pokemon owned."
+        input = gets.strip
+      end
+    
+    if input == "encounter"
+    Cli.encounter_pokemon(@trainer)
+    elsif input == "list"
+    @trainer.list_pokemon_by_name(@trainer)
+    end
+    end
 end
 
 
