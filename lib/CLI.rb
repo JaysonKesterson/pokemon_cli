@@ -1,6 +1,6 @@
 require 'poke-api-v2'
-require 'pry'
-#require '.lib/trainer.rb'
+#require 'pry'
+require_relative 'trainer'
 class Cli
   
   @trainer = nil
@@ -38,22 +38,7 @@ class Cli
   end
 end
 
-class Trainer
-  
-  attr_accessor :name, :team
-  
-  def initialize(name)
-    @name = name
-    @team = []
-  end
-  
-  def catch_pokemon(pokemon)
-    puts "You throw a pokeball...You caught the wild pokemon!"
-    @team << pokemon
-  end
-  
-  
-end
+
 
 Cli.interaction
 
