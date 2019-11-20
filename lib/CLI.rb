@@ -1,5 +1,5 @@
 require 'poke-api-v2'
-#require 'pry'
+require 'pry'
 require_relative 'trainer'
 class Cli
   
@@ -8,6 +8,8 @@ class Cli
   def self.interaction
     Cli.welcome_trainer
     Cli.first_wild_pokemon(@trainer)
+    Cli.encounter_pokemon(@trainer)
+    @trainer.list_pokemon_by_name(@trainer)
   end
   
   def self.welcome_trainer
@@ -37,7 +39,7 @@ class Cli
     trainer_obj.catch_pokemon(wild_pokemon)
   end
   
-  def encounter_pokemon
+  def self.encounter_pokemon(trainer_obj)
     puts "If you would like to catch another pokemon, type 'encounter' to find another one!"
     input = gets.strip
     
