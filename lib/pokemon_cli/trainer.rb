@@ -3,6 +3,7 @@ class Trainer
   
   attr_accessor :name, :pokemon_owned
   
+  
   def initialize(name)
     @name = name
     @pokemon_owned = []
