@@ -21,9 +21,10 @@ class Trainer
   end
   
   def find_out_more(index)
-    puts "This pokemon's species name is #{self.pokemon_owned[index].name}."
-    puts "This pokemon's type is #{self.pokemon_owned[index].type}."
-    puts "This pokemon's ability is #{self.pokemon_owned[index].abilities.ability}."
+    puts "This pokemon's species name is #{self.pokemon_owned[index-1].name}."
+    #puts "This pokemon's type is #{self.pokemon_owned[index-1].type}."
+    puts "This pokemon's height is #{self.pokemon_owned[index-1].height}."
+    puts "This pokemon's weight is #{self.pokemon_owned[index-1].weight}."
   end
   
   
