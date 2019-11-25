@@ -1,11 +1,12 @@
 class Pokemon
   
-  attr_accessor :type, :ability, :trainer, :name
+  attr_accessor :type, :height, :weight, :trainer, :name
   
-  def initialize(name,type,trainer,ability)
+  def initialize(name,type,trainer,height,weight)
     @name = name
     @type = type
     @trainer = trainer
-    @ability = ability
+    @height = height
+    @weight = weight
   end
 end
