@@ -6,7 +6,10 @@ class CLI
   def self.interaction
     CLI.welcome_trainer
     CLI.first_wild_pokemon(@trainer)
-    CLI.decision
+    CLI.catch_6_pokemon(@trainer)
+    CLI.list_of_pokemon_team(@trainer)
+    
+    #CLI.decision
   end
   
   def self.welcome_trainer
@@ -27,7 +30,6 @@ class CLI
     end
     
       wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
-      #binding.pry
       pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types,trainer_obj.name,wild_pokemon.height,wild_pokemon.weight)
       puts "You encountered a wild #{pokemon.name}!!"
       puts "Type 'pokeball' to attempt to capture the #{pokemon.name}."
@@ -39,21 +41,25 @@ class CLI
     trainer_obj.catch_pokemon(pokemon)
   end
   
-  def self.encounter_pokemon(trainer_obj)
+  def self.catch_6_pokemon(trainer_obj)
     puts "If you are ready to catch another pokemon, type 'go' to find another one!"
     input = gets.strip
     
+    puts "Pokemon teams consist of 6 pokemon, so lets catch 6 pokemon and then learn more about them!"
     
     while input != "go"
       puts "Whenever you are ready, type 'go' to find a Pokemon to capture!"
       input = gets.strip
     end
     
+    until trainer_obj.pokemon_owned.length == 6 do
     wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
-    #binding.pry
     pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types,trainer_obj.name,wild_pokemon.height,wild_pokemon.weight)
+      puts "You have #{trainer_obj.pokemon_owned.length} Pokemon in your team. Catch 6 pokemon!"
       puts "You encountered a wild #{pokemon.name}!!"
       puts "Type 'pokeball' to attempt to capture the #{pokemon.name}."
+      
+      input = gets.strip
       
     while input != "pokeball"
       puts "Throw a pokeball by typing 'pokeball'!"
@@ -61,36 +67,33 @@ class CLI
     end
     trainer_obj.catch_pokemon(pokemon)
   end
+end
       
-    def self.decision
-      puts "if you would like to capture another pokemon, type 'encounter'"
-      puts "if you would like to see a list of the pokemon you own, type 'list'."
+    def self.list_of_pokemon_team(trainer_obj)
+      puts "Your Pokemon team consists of these 6 pokemon:"
+      trainer_obj.list_pokemon_by_name(trainer_obj)
+    end
+    
+    def self.learn_more(trainer_obj)
+      puts "Type the index number next to the Pokemon you wish to learn more about, or 'exit' to leave."
+      
       input = gets.strip
       
-      while input != "encounter" && input != "list" do 
-        puts "Type 'encounter' to find another pokemon, or 'list' to see a list of pokemon owned."
-        input = gets.strip
+      until input == "exit" do
+      case input
+      when "1"
+        
+      when "2"
+        
+      when "3"
+        
+      when "4"
+        
+      when "5"
+        
+      when "6"
       end
-    
-    if input == "encounter"
-    CLI.encounter_pokemon(@trainer)
-    elsif input == "list"
-    @trainer.list_pokemon_by_name(@trainer)
-    puts "If you would like to learn more about a Pokemon you have caught, type the number next to the Pokemon you wish to learn more about."
-    puts "If you want to catch more pokemon, type 'encounter'"
-    input = gets.strip
-    
-    if input != "encounter" && input != "1"
-      puts "type 'encounter' to catch more pokemon or the number next to the Pokemon you wish to learn more about"
-      input = gets.strip
-    end
-    
-    if input == "encounter"
-      CLI.encounter_pokemon(@trainer)
-    elsif input == "1"
-      @trainer.find_out_more(input.to_i)
-    end
-    end
+     end
     end
     
     def self.goodbye
