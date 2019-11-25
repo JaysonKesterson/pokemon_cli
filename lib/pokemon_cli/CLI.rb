@@ -67,12 +67,12 @@ class CLI
       puts "if you would like to see a list of the pokemon you own, type 'list'."
       input = gets.strip
       
-      while input != "encounter" #need to check for list too?
+      while input != "encounter" && input != "list" do #need to check for list too? 
         puts "Type 'encounter' to find another pokemon, or 'list' to see a list of pokemon owned."
         input = gets.strip
       end
     
-    if input == "encounter" || "list"
+    if input == "encounter"
     CLI.encounter_pokemon(@trainer)
     elsif input == "list"
     @trainer.list_pokemon_by_name(@trainer)
