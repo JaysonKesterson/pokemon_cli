@@ -1,3 +1,3 @@
-#add a shabang line
+#!/usr/bin/env ruby
 require_relative '../lib/environment'
 CLI.interaction
