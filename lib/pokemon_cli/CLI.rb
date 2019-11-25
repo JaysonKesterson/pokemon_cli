@@ -27,16 +27,16 @@ class CLI
     end
     
       wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
-      wild_pokemon.methods
-      #pokemon = Pokemon.new()
-      puts "You encountered a wild #{wild_pokemon.name}!!"
-      puts "Type 'pokeball' to attempt to capture the #{wild_pokemon.name}."
+      #binding.pry
+      pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types,trainer_obj.name,wild_pokemon.height,wild_pokemon.weight)
+      puts "You encountered a wild #{pokemon.name}!!"
+      puts "Type 'pokeball' to attempt to capture the #{pokemon.name}."
       
     while input != "pokeball"
       puts "Throw a pokeball by typing 'pokeball'!"
       input = gets.strip
     end
-    trainer_obj.catch_pokemon(wild_pokemon)
+    trainer_obj.catch_pokemon(pokemon)
   end
   
   def self.encounter_pokemon(trainer_obj)
@@ -50,15 +50,16 @@ class CLI
     end
     
     wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
-    binding.pry
-      puts "You encountered a wild #{wild_pokemon.name}!!"
-      puts "Type 'pokeball' to attempt to capture the #{wild_pokemon.name}."
+    #binding.pry
+    pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types,trainer_obj.name,wild_pokemon.height,wild_pokemon.weight)
+      puts "You encountered a wild #{pokemon.name}!!"
+      puts "Type 'pokeball' to attempt to capture the #{pokemon.name}."
       
     while input != "pokeball"
       puts "Throw a pokeball by typing 'pokeball'!"
       input = gets.strip
     end
-    trainer_obj.catch_pokemon(wild_pokemon)
+    trainer_obj.catch_pokemon(pokemon)
   end
       
     def self.decision
