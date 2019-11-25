@@ -8,8 +8,7 @@ class CLI
     CLI.first_wild_pokemon(@trainer)
     CLI.catch_6_pokemon(@trainer)
     CLI.list_of_pokemon_team(@trainer)
-    
-    #CLI.decision
+    CLI.learn_more(@trainer)
   end
   
   def self.welcome_trainer
@@ -78,22 +77,51 @@ end
       puts "Type the index number next to the Pokemon you wish to learn more about, or 'exit' to leave."
       
       input = gets.strip
-      
+    
+       CLI.valid_input?(input)
+       
       until input == "exit" do
       case input
       when "1"
-        
+        trainer_obj.find_out_more(1)
+        puts "type another index number to learn about that pokemon, or exit to leave"
+        input = gets.strip
+        CLI.valid_input?(input)
       when "2"
-        
+        trainer_obj.find_out_more(2)
+        puts "type another index number to learn about that pokemon, or exit to leave"
+        input = gets.strip
+         CLI.valid_input?(input)
       when "3"
-        
+        trainer_obj.find_out_more(3)
+        puts "type another index number to learn about that pokemon, or exit to leave"
+        input = gets.strip
+         CLI.valid_input?(input)
       when "4"
-        
+        trainer_obj.find_out_more(4)
+        puts "type another index number to learn about that pokemon, or exit to leave"
+        input = gets.strip
+         CLI.valid_input?(input)
       when "5"
-        
+        trainer_obj.find_out_more(5)
+        puts "type another index number to learn about that pokemon, or exit to leave"
+        input = gets.strip
+         CLI.valid_input?(input)
       when "6"
+        trainer_obj.find_out_more(6)
+        puts "type another index number to learn about that pokemon, or exit to leave"
+        input = gets.strip
+         CLI.valid_input?(input)
       end
      end
+       CLI.goodbye
+    end
+    
+    def self.valid_input?(input)
+      if input != "exit" && input != "1" && input != "2" && input != "3" && input != "4" && input != "5" && input != "6"
+        puts "Invalid input! Please type the index number for the pokemon you wish to learn more about or exit to leave!"
+        input = gets.strip
+      end
     end
     
     def self.goodbye
