@@ -78,7 +78,7 @@ end
       
       input = gets.strip
     
-       CLI.valid_input?(input)
+      #CLI.valid_input?(input)
        
       until input == "exit" do
       case input
@@ -112,6 +112,9 @@ end
         puts "type another index number to learn about that pokemon, or exit to leave"
         input = gets.strip
          CLI.valid_input?(input)
+      else
+        puts "Invalid input! Type an index number to learn about that pokemon, or exit to leave"
+        input = gets.strip
       end
      end
        CLI.goodbye
