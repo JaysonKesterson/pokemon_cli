@@ -112,13 +112,6 @@ end
        CLI.goodbye
     end
     
-    def self.valid_input?(input)
-      if input != "exit" && input != "1" && input != "2" && input != "3" && input != "4" && input != "5" && input != "6"
-        puts "Invalid input! Please type the index number for the pokemon you wish to learn more about or exit to leave!"
-        input = gets.strip
-      end
-    end
-    
     def self.goodbye
       puts "Thanks for playing and learning more about Pokemon!"
     end
