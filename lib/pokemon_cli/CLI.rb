@@ -77,8 +77,6 @@ end
       puts "Type the index number next to the Pokemon you wish to learn more about, or 'exit' to leave."
       
       input = gets.strip
-    
-      #CLI.valid_input?(input)
        
       until input == "exit" do
       case input
@@ -86,32 +84,26 @@ end
         trainer_obj.find_out_more(1)
         puts "type another index number to learn about that pokemon, or exit to leave"
         input = gets.strip
-        CLI.valid_input?(input)
       when "2"
         trainer_obj.find_out_more(2)
         puts "type another index number to learn about that pokemon, or exit to leave"
         input = gets.strip
-         CLI.valid_input?(input)
       when "3"
         trainer_obj.find_out_more(3)
         puts "type another index number to learn about that pokemon, or exit to leave"
         input = gets.strip
-         CLI.valid_input?(input)
       when "4"
         trainer_obj.find_out_more(4)
         puts "type another index number to learn about that pokemon, or exit to leave"
         input = gets.strip
-         CLI.valid_input?(input)
       when "5"
         trainer_obj.find_out_more(5)
         puts "type another index number to learn about that pokemon, or exit to leave"
         input = gets.strip
-         CLI.valid_input?(input)
       when "6"
         trainer_obj.find_out_more(6)
         puts "type another index number to learn about that pokemon, or exit to leave"
         input = gets.strip
-         CLI.valid_input?(input)
       else
         puts "Invalid input! Type an index number to learn about that pokemon, or exit to leave"
         input = gets.strip
