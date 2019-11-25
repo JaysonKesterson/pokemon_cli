@@ -27,6 +27,8 @@ class CLI
     end
     
       wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
+      wild_pokemon.methods
+      #pokemon = Pokemon.new()
       puts "You encountered a wild #{wild_pokemon.name}!!"
       puts "Type 'pokeball' to attempt to capture the #{wild_pokemon.name}."
       
