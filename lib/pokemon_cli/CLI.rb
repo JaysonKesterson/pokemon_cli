@@ -67,7 +67,7 @@ class CLI
       puts "if you would like to see a list of the pokemon you own, type 'list'."
       input = gets.strip
       
-      while input != "encounter" && input != "list" do #need to check for list too? 
+      while input != "encounter" && input != "list" do 
         puts "Type 'encounter' to find another pokemon, or 'list' to see a list of pokemon owned."
         input = gets.strip
       end
@@ -76,8 +76,27 @@ class CLI
     CLI.encounter_pokemon(@trainer)
     elsif input == "list"
     @trainer.list_pokemon_by_name(@trainer)
+    puts "If you would like to learn more about a Pokemon you have caught, type the number next to the Pokemon you wish to learn more about."
+    puts "If you want to catch more pokemon, type 'encounter'"
+    input = gets.strip
+    
+    if input != "encounter" && input != "1"
+      puts "type 'encounter' to catch more pokemon or the number next to the Pokemon you wish to learn more about"
+      input = gets.strip
+    end
+    
+    if input == "encounter"
+      CLI.encounter_pokemon(@trainer)
+    elsif input == "1"
+      @trainer.find_out_more(input.to_i)
     end
     end
+    end
+    
+    def self.goodbye
+      puts "Thanks for playing and learning more about Pokemon!"
+    end
+    
 end
 
 
