@@ -12,15 +12,17 @@ class CLI
   end
   
   def self.welcome_trainer
-    puts "Welcome to the world of Pokemon, your journey as a Pokemon trainer begins today. What is your name?"
+    puts "Welcome to the world of Pokemon, your journey as a Pokemon trainer begins today.What is your name?"
     trainer_name = gets.strip
     @trainer = Trainer.new(trainer_name)
   end
   
   
   def self.first_wild_pokemon(trainer_obj)
-    puts "#{trainer_obj.name}, it is time for you to catch your first wild Pokemon and add it to your team!"
-    puts "Pokemon can be found while searching in tall grass, type 'search' to find a Pokemon."
+    puts "Welcome #{trainer_obj.name}! It is time for you to catch your first wild Pokemon and add it"
+    puts "to your team!"
+    puts "Pokemon can be found while searching in tall grass, type 'search'"
+    puts "to find a Pokemon."
     input = gets.strip
     
     while input != "search"
@@ -29,10 +31,10 @@ class CLI
     end
     
       wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
-      binding.pry
       pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types[0].type.name,trainer_obj.name,wild_pokemon.abilities[0].ability.name)
       puts "You encountered a wild #{pokemon.name}!!"
       puts "Type 'pokeball' to attempt to capture the #{pokemon.name}."
+      input = gets.strip
       
     while input != "pokeball"
       puts "Throw a pokeball by typing 'pokeball'!"
@@ -54,7 +56,7 @@ class CLI
     
     until trainer_obj.pokemon_owned.length == 6 do
     wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
-    pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types,trainer_obj.name,wild_pokemon.height,wild_pokemon.weight)
+    pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types[0].type.name,trainer_obj.name,wild_pokemon.abilities[0].ability.name)
       puts "You have #{trainer_obj.pokemon_owned.length} Pokemon in your team. Catch 6 pokemon!"
       puts "You encountered a wild #{pokemon.name}!!"
       puts "Type 'pokeball' to attempt to capture the #{pokemon.name}."
