@@ -40,11 +40,12 @@ class CLI
       puts "Throw a pokeball by typing 'pokeball'!"
       input = gets.strip
     end
-    trainer_obj.catch_pokemon(pokemon)
-  end
+      trainer_obj.catch_pokemon(pokemon)
+    end
   
   def self.catch_6_pokemon(trainer_obj)
-      puts "Pokemon teams consist of 6 pokemon, once you have 6 pokemon you can learn more about them!"
+    puts "Pokemon teams consist of 6 pokemon, once you have 6 pokemon you can learn more about them!"
+    sleep(2)
     puts "If you are ready to catch 5 more pokemon to have a full team, type 'go'!"
     input = gets.strip
     
@@ -54,13 +55,14 @@ class CLI
     end
     
     until trainer_obj.pokemon_owned.length == 6 do
-    wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
-    pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types[0].type.name,trainer_obj.name,wild_pokemon.abilities[0].ability.name)
+      wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
+      pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types[0].type.name,trainer_obj.name,wild_pokemon.abilities[0].ability.name)
       puts "You have caught #{trainer_obj.pokemon_owned.length} out of 6 pokemon!"
+      sleep(2)
       puts "You encountered a wild #{pokemon.name}!!"
-    trainer_obj.catch_pokemon(pokemon)
+      trainer_obj.catch_pokemon(pokemon)
+     end
   end
-end
       
     def self.list_of_pokemon_team(trainer_obj)
       puts "Your Pokemon team consists of these 6 pokemon:"
@@ -73,7 +75,9 @@ end
       input = gets.strip
        
       until input == "exit" do
+        
       case input
+      
       when 'list'
         CLI.list_of_pokemon_team(@trainer)
         input = gets.strip
