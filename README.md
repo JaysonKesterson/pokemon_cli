@@ -15,6 +15,8 @@ Then type: cd pokemon_cli in the terminal
 
 Then type: gem install 'poke-api-v2' in the terminal to get access to the API
 
+then type: bin/execute to run the application
+
 Add this line to your application's Gemfile:
 
 ```ruby
