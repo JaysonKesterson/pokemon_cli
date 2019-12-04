@@ -6,6 +6,15 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
+To gain access to use this application first clone the repository from
+git hub in the terminal using the command:
+
+git clone git@github.com:JaysonKesterson/pokemon_cli.git
+
+Then type: cd pokemon_cli in the terminal 
+
+Then type: gem install 'poke-api-v2' in the terminal to get access to the API
+
 Add this line to your application's Gemfile:
 
 ```ruby
