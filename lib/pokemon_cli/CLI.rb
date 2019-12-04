@@ -44,29 +44,20 @@ class CLI
   end
   
   def self.catch_6_pokemon(trainer_obj)
-    puts "If you are ready to catch another pokemon, type 'go' to find another one!"
+      puts "Pokemon teams consist of 6 pokemon, once you have 6 pokemon you can learn more about them!"
+    puts "If you are ready to catch 5 more pokemon to have a full team, type 'go'!"
     input = gets.strip
     
-    puts "Pokemon teams consist of 6 pokemon, so lets catch 6 pokemon and then learn more about them!"
-    
     while input != "go"
-      puts "Whenever you are ready, type 'go' to find a Pokemon to capture!"
+      puts "Whenever you are ready, type 'go' to catch 5 more Pokemon!"
       input = gets.strip
     end
     
     until trainer_obj.pokemon_owned.length == 6 do
     wild_pokemon = PokeApi.get(pokemon: rand(806)+1)
     pokemon = Pokemon.new(wild_pokemon.name,wild_pokemon.types[0].type.name,trainer_obj.name,wild_pokemon.abilities[0].ability.name)
-      puts "You have #{trainer_obj.pokemon_owned.length} Pokemon in your team. Catch 6 pokemon!"
+      puts "You have caught #{trainer_obj.pokemon_owned.length} out of 6 pokemon!"
       puts "You encountered a wild #{pokemon.name}!!"
-      puts "Type 'pokeball' to attempt to capture the #{pokemon.name}."
-      
-      input = gets.strip
-      
-    while input != "pokeball"
-      puts "Throw a pokeball by typing 'pokeball'!"
-      input = gets.strip
-    end
     trainer_obj.catch_pokemon(pokemon)
   end
 end
