@@ -31,8 +31,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'daunt
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License](https://github.com/JaysonKesterson/pokemon_cli/blob/master/LICENSE.txt).
 
 ## Code of Conduct
 
-Everyone interacting in the PokemonCli project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'dauntless-lab-7644'/pokemon_cli/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the PokemonCli project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/JaysonKesterson/pokemon_cli/blob/master/CODE_OF_CONDUCT.md)
