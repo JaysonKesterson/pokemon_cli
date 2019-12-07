@@ -38,4 +38,5 @@ and then learn more about them through user interaction.}
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "poke-api-v2"
 end
