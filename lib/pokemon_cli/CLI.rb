@@ -73,39 +73,19 @@ class CLI
       puts "Type the index number next to the Pokemon you wish to learn more about, 'list' to see the list of pokemon again or 'exit' to leave."
       
       input = gets.strip
+      
        
       until input == "exit" do
         
-      case input
-      
-      when 'list'
+        if input == 'list'
         CLI.list_of_pokemon_team(@trainer)
         input = gets.strip
-      when "1"
-        trainer_obj.find_out_more(1)
-        puts "Type another index number next to the Pokemon you wish to learn more about, 'list' to see the list of pokemon again or 'exit' to leave."
+      
+        elsif input.to_i.between?(1,6)
+        trainer_obj.find_out_more(input.to_i)
         input = gets.strip
-      when "2"
-        trainer_obj.find_out_more(2)
-        puts "Type another index number next to the Pokemon you wish to learn more about, 'list' to see the list of pokemon again or 'exit' to leave."
-        input = gets.strip
-      when "3"
-        trainer_obj.find_out_more(3)
-        puts "Type another index number next to the Pokemon you wish to learn more about, 'list' to see the list of pokemon again or 'exit' to leave."
-        input = gets.strip
-      when "4"
-        trainer_obj.find_out_more(4)
-        puts "Type another index number next to the Pokemon you wish to learn more about, 'list' to see the list of pokemon again or 'exit' to leave."
-        input = gets.strip
-      when "5"
-        trainer_obj.find_out_more(5)
-        puts "Type another index number next to the Pokemon you wish to learn more about, 'list' to see the list of pokemon again or 'exit' to leave."
-        input = gets.strip
-      when "6"
-        trainer_obj.find_out_more(6)
-        puts "Type another index number next to the Pokemon you wish to learn more about, 'list' to see the list of pokemon again or 'exit' to leave."
-        input = gets.strip
-      else
+        
+        else
         puts "Invalid input! Type an index number to learn about that pokemon, 'list' to see the list of pokemon owned or 'exit' to leave"
         input = gets.strip
       end
