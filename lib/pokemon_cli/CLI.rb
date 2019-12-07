@@ -1,8 +1,6 @@
 
 class CLI
   
-  @trainer = nil
-  
   def self.interaction
     CLI.welcome_trainer
     CLI.first_wild_pokemon(@trainer)
