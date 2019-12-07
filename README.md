@@ -12,27 +12,12 @@ git clone git@github.com:JaysonKesterson/pokemon_cli.git
 
 Then type: cd pokemon_cli in the terminal 
 
-Then type: gem install 'poke-api-v2' in the terminal to get access to the API
+Then type: bundle install in the terminal to get access to the API
 
-then type: bin/execute to run the application
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'pokemon_cli'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install pokemon_cli
 
 ## Usage
 
-TODO: Write usage instructions here
+Type bin/execute to run the application and then follow the on screen insturctions for the application.
 
 ## Development
 
