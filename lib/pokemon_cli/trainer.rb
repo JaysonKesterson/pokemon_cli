@@ -14,8 +14,8 @@ class Trainer
     @pokemon_owned << pokemon
   end
   
-  def list_pokemon_by_name(trainer)
-    trainer.pokemon_owned.each_with_index do |pokemon, index|
+  def list_pokemon_by_name
+    pokemon_owned.each_with_index do |pokemon, index|
       puts "#{index +1}. #{pokemon.name}"
     end
   end
